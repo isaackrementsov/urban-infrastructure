@@ -1,0 +1,93 @@
+body, html {
+    margin:0;
+    font-family: 'Arial', sans-serif;
+    font-size: 3vh;
+    background-color:whitesmoke;
+}
+body * {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.head {
+    margin-top: 10vh;
+    font-size: 7vh;
+}
+button {
+    padding: 2vh 4vh;
+    background-color: #03A9F4;
+    border-style: hidden;
+    color:white;
+    font-size:4vh;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+#game {
+    margin-top: 7vh;
+}
+p {
+    font-size: 3vh;
+    font-weight: normal;
+    
+}
+h2 {
+    font-weight: normal;
+}
+#info {
+    width: 30vw;
+}
+#map {
+    display:block;
+    background-color: #F0F0F0;
+}
+.inline * {
+    display: inline;
+}
+.alert {
+    z-index: 3;
+    position: fixed;
+    padding: 2vh 2vw;
+    width: 20vw;
+    left: 38vw;
+    top: 10vh;
+    background-color: white;
+    border-style: hidden;
+    border-radius: 3px;
+}
+.alert-wrapper {
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.message {
+    background-color: #03A9F4;
+    color: white;
+    width: 20vw;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    padding: 2vh 2vw;
+    border-style: hidden;
+    border-radius: 5px;
+}
+.alert button{
+    margin: 4vh auto;
+}
+.normal {
+    background-color:lightgrey;
+    color: darkslategray;
+    border-style: solid;
+    border-color: transparent;
+}
+canvas {
+    border-style: solid;
+    border-color: grey;
+}
+.small {
+    font-size: 1.5vw;
+    background-color: lightgrey;
+    border-color: transparent;
+}
