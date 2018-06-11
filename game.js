@@ -57,8 +57,13 @@ function work(){
         <div class="message" id="cantPay" style="display:none">
             Hi! I am the CEO of Apple Pies, Incorporated. 
             You have an untapped apple supply, but it's too expensive to move them around on one road. 
-            Why don't we partner to build some roads? I will help with finances.<br><button class="normal small" style="border-color:transparent" onclick="multiExec({increase:increaseInvestment(1000), openthis:deletediv('cantPay')})">Accept</button>
-        </div>        
+            Why don't we partner to build some roads? I will help with finances.<br><button class="normal small" style="border-color:transparent" onclick="multiExec({increase:increaseInvestment(1000), openthis:opendiv('cantPay')})">Accept</button>
+        </div> 
+        <div class="alert-wrapper" id="alert" style="display:none;">
+            <div class="alert" id="alert-content">
+
+            </div>
+        </div>       
         `
 }
 function opendiv(i){
@@ -119,11 +124,9 @@ function getMoney(){
     return money
 }
 function makeAlert(content){
-    document.body.innerHTML += `<div class="alert-wrapper" id="alert">
-                                    <div class="alert">
-                                        ${content}
-                                    </div>
-                                </div>`
+    var alertContent = document.getElementById('alert-content');
+    alertContent.innerHTML = content;
+    opendiv('alert')
 }
 function openPay(price, investment){
     var money = getMoney();
@@ -131,13 +134,13 @@ function openPay(price, investment){
     if(money + investment < price){
         content = `<h1>Road</h1>
         Sorry, you only have $${Math.round(money/10 + investment)}; you need $${Math.round(price - money/10 - investment)}<br>
-        <button onclick="multiExec({delete:deletediv('alert'),emit:opendiv('cantPay')})">Cancel</button>`;
+        <button onclick="multiExec({delete:opendiv('alert'),emit:opendiv('cantPay')})">Cancel</button>`;
         roadInvestment -= price  
     }else{
         content = `<h2>Road</h2>
         <p class="inline">Supply <span style="color:green">+${Math.round(25/totalRoads)}</span></p>
         <p class="inline">Prices <span style="color:red">-$${Math.round(prices * 10)/100}</span></p>
-        <button onclick="multiExec({increase:buildroad(1), delete:deletediv('alert')})">Buy now!</button>`
+        <button onclick="multiExec({increase:buildroad(1), delete:opendiv('alert')})">Buy now!</button>`
     }
     makeAlert(content)
 }
